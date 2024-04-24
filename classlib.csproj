@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Filter out net9.0 when producing a package -->
+    <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludeBuildOutput Condition="'$(TargetFramework)' == 'net9.0'">false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking Condition="'$(IncludeBuildOutput)' == 'false'">true</SuppressDependenciesWhenPacking>
+  </PropertyGroup>
+
+</Project>
